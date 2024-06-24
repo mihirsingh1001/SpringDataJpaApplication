@@ -103,32 +103,34 @@ public class SpringOrmApplication implements CommandLineRunner {
 
 		// logger.info("Student info ::: " + std);
 
+		// ===========================================================================================
+
 		// One to Many
 
-		Department department = new Department();
-		department.setDepartment_id(11);
-		department.setDepartment_name("Department of Research");
+		// Department department = new Department();
+		// department.setDepartment_id(11);
+		// department.setDepartment_name("Department of Research");
 
-	    Employee emp1 = new Employee();
-		emp1.setEmployee_id(1);
-		emp1.setEmployee_name("Ramesh");
-		emp1.setSalary(800000);
-		emp1.setDepartment(department);
+	    // Employee emp1 = new Employee();
+		// emp1.setEmployee_id(1);
+		// emp1.setEmployee_name("Ramesh");
+		// emp1.setSalary(800000);
+		// emp1.setDepartment(department);
 
-        Employee emp2 = new Employee();
-		emp1.setEmployee_id(2);
-		emp2.setEmployee_name("Bob");
-		emp2.setSalary(600000);
-		emp2.setDepartment(department);
+        // Employee emp2 = new Employee();
+		// emp1.setEmployee_id(2);
+		// emp2.setEmployee_name("Bob");
+		// emp2.setSalary(600000);
+		// emp2.setDepartment(department);
 
-		List<Employee> empList = new ArrayList<>();
-		empList.add(emp1);
-		empList.add(emp2);
+		// List<Employee> empList = new ArrayList<>();
+		// empList.add(emp1);
+		// empList.add(emp2);
 
-		department.setEmployee(empList);
-		Department dp = departmentRepository.save(department);
+		// department.setEmployee(empList);
+		// Department dp = departmentRepository.save(department);
 
-		logger.info("Saved :: " + dp);
+		// logger.info("Saved :: " + dp);
 
 	}
 

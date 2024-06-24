@@ -1,9 +1,13 @@
 package com.mihirsingh.jpa.entities;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -17,25 +21,33 @@ public class Student {
     @Column(name = "student_name")
     private String student_name;
 
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
-    private Laptop laptop;
+    // @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    // private Laptop laptop;
+
+    @ManyToMany
+    // @JoinColumn(name = "course_id")
+    private List<Course> course;
 
     public Student(int student_id, String student_name) {
         this.student_id = student_id;
         this.student_name = student_name;
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+    public Student(List<Course> course) {
+        this.course = course;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
-    }
+    // public Laptop getLaptop() {
+    //     return laptop;
+    // }
 
-    public Student(Laptop laptop) {
-        this.laptop = laptop;
-    }
+    // public void setLaptop(Laptop laptop) {
+    //     this.laptop = laptop;
+    // }
+
+    // public Student(Laptop laptop) {
+    //     this.laptop = laptop;
+    // }
 
     public Student() {
     }
@@ -54,6 +66,20 @@ public class Student {
 
     public void setStudent_name(String student_name) {
         this.student_name = student_name;
+    }
+
+    public List<Course> getCourse() {
+        return course;
+    }
+
+    public void setCourse(List<Course> course) {
+        this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [student_id=" + student_id + ", student_name=" + student_name 
+                + ", course=" + course + "]";
     }
 
 }
